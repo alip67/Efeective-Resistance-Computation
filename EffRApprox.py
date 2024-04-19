@@ -112,10 +112,9 @@ def WDiag(weights):
 ## type; type of calculation for EffR
 ##
 #### 'ext', exact calculation
-#### 'ssa', original Spielman-Srivastava algorithm
+#### 'spl', original Spielman-Srivastava algorithm
 #### 'kts', Koutis et. al
 ##### Implement preconditioner M for cg solver? cg(A,b,tol,M=None) - use spilu function or another from scipy.sparse.linalg? https://stackoverflow.com/questions/32865832/preconditioned-conjugate-gradient-and-linearoperator-in-python
-##### !Warning! For very small networks, a preconditioner is advised!
 def EffR(E_list, weights, epsilon, type, tol=1e-10, precon=False):
     # Find number of edges and number of nodes
     m = np.shape(E_list)[0]
