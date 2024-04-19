@@ -30,4 +30,4 @@ Effective_R = network.effR(epsilon, method)
 
 **Arguments**
 * **epsilon** Signifies the amount of relative error in the effective resistance approximation. 
-* **method** Specifies the method of approximation to be used - 'ext' is the exact calculation of effective resistance, 'ssa' the original Spielman-Srivastva algorithm, and 'kts' as the Koutis et al. implementation. 
+* **method** Specifies the method of approximation to be used - 'ext' is the exact calculation of effective resistance, 'spl' the original Spielman-Srivastva algorithm, and 'kts' as the Koutis et al. implementation. 

@@ -1,7 +1,5 @@
 import EffRApprox as er
 import Spielman_Sparse as spl
-# import RanGraphGen as rg
-# import FastSims as fs
 import numpy as np
 from scipy import sparse
 import networkx as nx
@@ -157,48 +155,8 @@ class Network:
         E_list, weights = spl.Thresh(self.nodenum(), self.E_list, self.weights, per)
         return Network(E_list, weights)
 
-    # def SIR(self, beta, gamma, pzs, t_max, seed=None):
-    #     return fs.SIR_fast3(self.graph, beta, gamma, pzs, t_max, self.neighbors, seed=seed)
-
-    # def AvgSIR(self, res, num, beta, gamma, pzs, t_max):
-    #     return fs.AvgSIR(res, num, self, beta, gamma, pzs, t_max)
-    #
-    # def SizeSIR(self, num, beta, gamma, pzs, t_max):
-    #     return fs.SizeSIR(num, self, beta, gamma, pzs, t_max)
-    #
-    # def Arrivals(self, num, beta, gamma, pzs, t_max):
-    #     return fs.Arrivals(num, self, beta, gamma, pzs, t_max)
-    #
-    # def SI(self, beta, pzs, t_max, seed=None):
-    #     return fs.SI_fast(self.adj(), beta, pzs, t_max, seed=seed)
-
-    # def sims(self, num, res, beta, gamma, pzs, t_max, seed=None):
-    #     return fs.simulations(num, res, self, beta, gamma, pzs, t_max, seed)
-
     @classmethod
     def tri(cls):
         A = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
         E_list, weights = er.Mtrx_Elist(A)
         return Network(E_list, weights)
-
-    # @classmethod
-    # def complete(cls, n):
-    #     A = rg.ER_gen(n, 1)
-    #     E_list, weights = er.Mtrx_Elist(A)
-    #     return Network(E_list, weights)
-
-    @classmethod
-    def MassCom(cls):
-        A = np.load('C://Users//henry//PycharmProjects//Summer2021Research//mass_commute_2017.npy')
-        np.fill_diagonal(A, 0)
-        E_list, weights = er.Mtrx_Elist(A)
-        return Network(E_list, weights)
-
-    @classmethod
-    def NCCom(cls):
-        G = nx.read_graphml('tract_commuter_flows.graphml')
-        return Network(None, None, G)
-
-    @classmethod
-    def USNet(cls):
-        return Network(None, None, nx.read_graphml('US_tract.graphml'))
