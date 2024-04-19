@@ -1,7 +1,7 @@
 import EffRApprox as er
 import Spielman_Sparse as spl
-import RanGraphGen as rg
-import FastSims as fs
+# import RanGraphGen as rg
+# import FastSims as fs
 import numpy as np
 from scipy import sparse
 import networkx as nx
@@ -157,8 +157,8 @@ class Network:
         E_list, weights = spl.Thresh(self.nodenum(), self.E_list, self.weights, per)
         return Network(E_list, weights)
 
-    def SIR(self, beta, gamma, pzs, t_max, seed=None):
-        return fs.SIR_fast3(self.graph, beta, gamma, pzs, t_max, self.neighbors, seed=seed)
+    # def SIR(self, beta, gamma, pzs, t_max, seed=None):
+    #     return fs.SIR_fast3(self.graph, beta, gamma, pzs, t_max, self.neighbors, seed=seed)
 
     # def AvgSIR(self, res, num, beta, gamma, pzs, t_max):
     #     return fs.AvgSIR(res, num, self, beta, gamma, pzs, t_max)
@@ -181,11 +181,11 @@ class Network:
         E_list, weights = er.Mtrx_Elist(A)
         return Network(E_list, weights)
 
-    @classmethod
-    def complete(cls, n):
-        A = rg.ER_gen(n, 1)
-        E_list, weights = er.Mtrx_Elist(A)
-        return Network(E_list, weights)
+    # @classmethod
+    # def complete(cls, n):
+    #     A = rg.ER_gen(n, 1)
+    #     E_list, weights = er.Mtrx_Elist(A)
+    #     return Network(E_list, weights)
 
     @classmethod
     def MassCom(cls):
