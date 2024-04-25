@@ -157,7 +157,7 @@ def EffR(E_list, weights, epsilon, type, tol=1e-10, precon=False):
                 effR[:, i] = R_eff[0]
 
         effR = effR[0]
-        return effR
+        return effR , Z
 
     # Original Spielman-Srivastava algorithm
     if type == 'spl':
@@ -183,7 +183,7 @@ def EffR(E_list, weights, epsilon, type, tol=1e-10, precon=False):
 
         effR = np.sum(np.square(Z[:, E_list[:, 0]] - Z[:, E_list[:, 1]]),
                       axis=0)  # Calculate distance between poitns for effR
-        return effR
+        return effR, Z
 
     # Koutis et al. algorithm
     if type == 'kts':
@@ -222,4 +222,4 @@ def EffR(E_list, weights, epsilon, type, tol=1e-10, precon=False):
                 effR_res = effR_res + np.abs(np.square(Z[E_list[:, 0]] - Z[E_list[:, 1]]))
 
         effR = effR_res[0]
-        return effR
+        return effR , Z
